@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Africa</string>
+		<key>key</key>
+		<string>africa</string>
+		<key>is_region</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Americas</string>
+		<key>key</key>
+		<string>americas</string>
+		<key>is_region</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Asia</string>
+		<key>key</key>
+		<string>asia</string>
+		<key>is_region</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Europe</string>
+		<key>key</key>
+		<string>europe</string>
+		<key>is_region</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Oceania</string>
+		<key>key</key>
+		<string>oceania</string>
+		<key>is_region</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>European Union</string>
+		<key>key</key>
+		<string>eu</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>European Free Trade Association</string>
+		<key>key</key>
+		<string>efta</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Caribbean Community</string>
+		<key>key</key>
+		<string>caricom</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Pacific Alliance</string>
+		<key>key</key>
+		<string>pa</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>African Union</string>
+		<key>key</key>
+		<string>au</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Union of South American Nations</string>
+		<key>key</key>
+		<string>usan</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Eurasian Economic Union</string>
+		<key>key</key>
+		<string>eeu</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Arab League</string>
+		<key>key</key>
+		<string>al</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Association of Southeast Asian Nations</string>
+		<key>key</key>
+		<string>asean</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Central American Integration System</string>
+		<key>key</key>
+		<string>cais</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Central European Free Trade Agreement</string>
+		<key>key</key>
+		<string>cefta</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>North American Free Trade Agreement</string>
+		<key>key</key>
+		<string>nafta</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>South Asian Association for Regional Cooperation</string>
+		<key>key</key>
+		<string>saarc</string>
+		<key>is_region</key>
+		<false/>
+	</dict>
+</array>
+</plist>

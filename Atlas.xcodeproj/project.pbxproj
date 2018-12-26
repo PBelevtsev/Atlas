@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3EAF9D21D3E6530072BA12 /* regions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EAF9C21D3E6530072BA12 /* regions.plist */; };
+		3B3EAF9F21D3E8E40072BA12 /* RegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */; };
 		3BE25A9721D3D4B500D70B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE25A9621D3D4B500D70B24 /* AppDelegate.swift */; };
 		3BE25A9921D3D4B500D70B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE25A9821D3D4B500D70B24 /* ViewController.swift */; };
 		3BE25A9C21D3D4B500D70B24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25A9A21D3D4B500D70B24 /* Main.storyboard */; };
 		3BE25A9E21D3D4B700D70B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25A9D21D3D4B700D70B24 /* Assets.xcassets */; };
 		3BE25AA121D3D4B700D70B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25A9F21D3D4B700D70B24 /* LaunchScreen.storyboard */; };
+		3BE25AAE21D3D95300D70B24 /* ResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */; };
+		3BE25AB021D3D9BC00D70B24 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25AAF21D3D9BC00D70B24 /* data.json */; };
+		60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26A964F33328B0A182F3D752 /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
+		3B3EAF9C21D3E6530072BA12 /* regions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = regions.plist; sourceTree = "<group>"; };
+		3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsViewController.swift; sourceTree = "<group>"; };
 		3BE25A9321D3D4B500D70B24 /* Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE25A9621D3D4B500D70B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE25A9821D3D4B500D70B24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,10 @@
 		3BE25A9D21D3D4B700D70B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BE25AA021D3D4B700D70B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BE25AA221D3D4B700D70B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesManager.swift; sourceTree = "<group>"; };
+		3BE25AAF21D3D9BC00D70B24 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		6C1ED25F417752934D42FC51 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
+		C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +53,8 @@
 			children = (
 				3BE25A9521D3D4B500D70B24 /* Atlas */,
 				3BE25A9421D3D4B500D70B24 /* Products */,
+				D414BCF7791468DB441F1A98 /* Pods */,
+				9B82EFE5731C33E4DE6595ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +70,74 @@
 			isa = PBXGroup;
 			children = (
 				3BE25A9621D3D4B500D70B24 /* AppDelegate.swift */,
-				3BE25A9821D3D4B500D70B24 /* ViewController.swift */,
-				3BE25A9A21D3D4B500D70B24 /* Main.storyboard */,
-				3BE25A9D21D3D4B700D70B24 /* Assets.xcassets */,
-				3BE25A9F21D3D4B700D70B24 /* LaunchScreen.storyboard */,
-				3BE25AA221D3D4B700D70B24 /* Info.plist */,
+				3BE25AA821D3D8E100D70B24 /* Managers */,
+				3BE25AA921D3D8EC00D70B24 /* UserInterface */,
+				3BE25AAC21D3D90800D70B24 /* Resources */,
 			);
 			path = Atlas;
+			sourceTree = "<group>";
+		};
+		3BE25AA821D3D8E100D70B24 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3BE25AA921D3D8EC00D70B24 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				3BE25AAA21D3D8EC00D70B24 /* Storyboards */,
+				3BE25AAB21D3D8EC00D70B24 /* ViewControllers */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		3BE25AAA21D3D8EC00D70B24 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3BE25A9F21D3D4B700D70B24 /* LaunchScreen.storyboard */,
+				3BE25A9A21D3D4B500D70B24 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3BE25AAB21D3D8EC00D70B24 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BE25A9821D3D4B500D70B24 /* ViewController.swift */,
+				3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3BE25AAC21D3D90800D70B24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3BE25AA221D3D4B700D70B24 /* Info.plist */,
+				3BE25AAF21D3D9BC00D70B24 /* data.json */,
+				3B3EAF9C21D3E6530072BA12 /* regions.plist */,
+				3BE25A9D21D3D4B700D70B24 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B82EFE5731C33E4DE6595ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D414BCF7791468DB441F1A98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C1ED25F417752934D42FC51 /* Pods-Atlas.debug.xcconfig */,
+				26A964F33328B0A182F3D752 /* Pods-Atlas.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BE25AA521D3D4B700D70B24 /* Build configuration list for PBXNativeTarget "Atlas" */;
 			buildPhases = (
+				078873C130CC6A8C99F94120 /* [CP] Check Pods Manifest.lock */,
 				3BE25A8F21D3D4B500D70B24 /* Sources */,
 				3BE25A9021D3D4B500D70B24 /* Frameworks */,
 				3BE25A9121D3D4B500D70B24 /* Resources */,
+				281B1AFEA2F3E5FD8970E7F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,18 +203,63 @@
 				3BE25AA121D3D4B700D70B24 /* LaunchScreen.storyboard in Resources */,
 				3BE25A9E21D3D4B700D70B24 /* Assets.xcassets in Resources */,
 				3BE25A9C21D3D4B500D70B24 /* Main.storyboard in Resources */,
+				3BE25AB021D3D9BC00D70B24 /* data.json in Resources */,
+				3B3EAF9D21D3E6530072BA12 /* regions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		078873C130CC6A8C99F94120 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Atlas-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		281B1AFEA2F3E5FD8970E7F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Atlas/Pods-Atlas-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Atlas/Pods-Atlas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3BE25A8F21D3D4B500D70B24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3EAF9F21D3E8E40072BA12 /* RegionsViewController.swift in Sources */,
 				3BE25A9921D3D4B500D70B24 /* ViewController.swift in Sources */,
 				3BE25A9721D3D4B500D70B24 /* AppDelegate.swift in Sources */,
+				3BE25AAE21D3D95300D70B24 /* ResourcesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +403,11 @@
 		};
 		3BE25AA621D3D4B700D70B24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C1ED25F417752934D42FC51 /* Pods-Atlas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Atlas/Info.plist;
+				INFOPLIST_FILE = Atlas/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,10 +421,11 @@
 		};
 		3BE25AA721D3D4B700D70B24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A964F33328B0A182F3D752 /* Pods-Atlas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Atlas/Info.plist;
+				INFOPLIST_FILE = Atlas/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
