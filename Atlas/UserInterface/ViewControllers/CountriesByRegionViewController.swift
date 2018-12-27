@@ -30,6 +30,8 @@ class CountriesByRegionViewController: UITableViewController {
 
         self.title = regionData["title"] as? String
         self.tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableView.estimatedRowHeight = 60.0
+
     }
 
     // MARK: - Table view data source

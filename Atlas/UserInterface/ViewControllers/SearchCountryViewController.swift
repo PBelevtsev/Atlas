@@ -28,12 +28,20 @@ class SearchCountryViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         tableViewData.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableViewData.estimatedRowHeight = 60.0
+
         searchBar.throttlingInterval = 0.5
      
         searchBar.onSearch = { text in
             self.searchCountry(text)
         }
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.view.endEditing(true)
     }
     
     // MARK: - Search

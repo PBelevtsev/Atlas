@@ -37,7 +37,8 @@ class CountryInfoViewController: UITableViewController {
         for cellIdentifier in cellIdentifiers {
             self.tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         }
-        
+        self.tableView.estimatedRowHeight = 60.0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

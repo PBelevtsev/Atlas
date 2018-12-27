@@ -16,6 +16,8 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableViewData.estimatedRowHeight = 44.0
+
     }
 
     // MARK: - Table view data source

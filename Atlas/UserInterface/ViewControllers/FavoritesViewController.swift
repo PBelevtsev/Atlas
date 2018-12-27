@@ -26,7 +26,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         tableViewData.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        
+        tableViewData.estimatedRowHeight = 60.0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
