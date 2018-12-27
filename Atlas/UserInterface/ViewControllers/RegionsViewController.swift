@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -46,6 +47,18 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let region = ResourcesManager.shared.regions[indexPath.row];
+        
+        SVProgressHUD.show()
+        ResourcesManager.shared.searchByRegion(region) { (countries, error) in
+            SVProgressHUD.dismiss()
+            if countries != nil {
+                RouteManager.shared.showCountriesByRegionScreen(region, countries)
+            }
+        }
+        
+        //
         
     }
     /*
