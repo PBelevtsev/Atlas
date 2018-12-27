@@ -21,17 +21,17 @@ class CountryInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.prepareForReuse()
+        prepareForReuse()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.labelFlag.text = ""
-        self.labelCurrency.text = " "
-        self.labelLanguage.text = " "
-        self.labelBoardsWith.text = ""
-        self.mapView.removeAnnotations(self.mapView.annotations)
+        labelFlag.text = ""
+        labelCurrency.text = " "
+        labelLanguage.text = " "
+        labelBoardsWith.text = ""
+        mapView.removeAnnotations(mapView.annotations)
         
     }
 
@@ -43,29 +43,28 @@ class CountryInfoTableViewCell: UITableViewCell {
     
     func updateForCountry(_ country : [String : Any]!, _ countries : [[String : Any]]?) {
         
-        print("\(country!)")
         if let code = country["alpha2Code"] as? String {
             labelFlag.text = ResourcesManager.shared.flagByCode(code)
         }
-        if let currencies = self.namesFromArray(country, "currencies") {
-            self.labelCurrency.text = currencies.joined(separator: ", ")
+        if let currencies = namesFromArray(country, "currencies") {
+            labelCurrency.text = currencies.joined(separator: ", ")
         }
-        if let languages = self.namesFromArray(country, "languages") {
-            self.labelLanguage.text = languages.joined(separator: ", ")
+        if let languages = namesFromArray(country, "languages") {
+            labelLanguage.text = languages.joined(separator: ", ")
         }
         if let latlng = country["latlng"] as? [Double] {
             if latlng.count == 2 {
                 let center = CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
                 let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
-                self.mapView.setRegion(region, animated: false)
+                mapView.setRegion(region, animated: false)
                 
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = center
-                self.mapView.addAnnotation(annotation)
+                mapView.addAnnotation(annotation)
             }
         }
         if countries != nil {
-            self.labelBoardsWith.text = "Boards with:"
+            labelBoardsWith.text = "Boards with:"
         }
     }
     

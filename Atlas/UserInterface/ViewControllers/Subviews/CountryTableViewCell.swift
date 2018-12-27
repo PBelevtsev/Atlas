@@ -17,15 +17,15 @@ class CountryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.prepareForReuse()
+        prepareForReuse()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.labelFlag.text = ""
-        self.labelName.text = ""
-        self.labelNativeName.text = ""
+        labelFlag.text = ""
+        labelName.text = ""
+        labelNativeName.text = ""
         
     }
     
@@ -36,7 +36,7 @@ class CountryTableViewCell: UITableViewCell {
     }
 
     func updateForCountry(_ country : [String : Any]!) {
-        self.updateForCountry(country, true)
+        updateForCountry(country, true)
     }
     
     func updateForCountry(_ country : [String : Any]!, _ withNativeName : Bool) {

@@ -57,4 +57,20 @@ class RequestManager: NSObject {
         
     }
     
+    func searchByCodes(_ codes : [String]!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+        
+        manager.get("\(baseURL)alpha?codes=\(codes.joined(separator: ";"))", parameters: nil, progress: { (progress) in
+            
+        }, success: { (operation, responseObject) in
+            if let result = responseObject as? [[String : Any]] {
+                completionHandler(result, nil)
+            } else {
+                completionHandler(nil, nil);
+            }
+        }) { (operation, error) in
+            completionHandler(nil, error)
+        }
+        
+    }
+    
 }

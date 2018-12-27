@@ -19,12 +19,12 @@ class RouteManager: NSObject {
     
     func showCountriesByRegionScreen(_ regionData : [String : Any]!, _ countries : [[String : Any]]!) {
         let controller = CountriesByRegionViewController.makeCountriesByRegionsVC(regionData: regionData, countries: countries);
-        self.mainNavigationController().pushViewController(controller, animated: true)
+        mainNavigationController().pushViewController(controller, animated: true)
     }
     
     func showCountryInfoScreen(_ country : [String : Any]!) {
-        let controller = CountryInfoTableViewController.makeCountryInfoVC(country: country);
-        self.mainNavigationController().pushViewController(controller, animated: true)
+        let controller = CountryInfoViewController.makeCountryInfoVC(country: country);
+        mainNavigationController().pushViewController(controller, animated: true)
     }
     
 }

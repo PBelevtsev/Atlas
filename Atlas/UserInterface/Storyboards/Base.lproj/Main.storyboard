@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PtK-dc-FYL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PtK-dc-FYL">
                                 <rect key="frame" x="0.0" y="76" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="158" y="-501"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="x0r-sU-COB">
             <objects>
-                <viewController id="r7d-oq-4oU" sceneMemberID="viewController">
+                <viewController id="r7d-oq-4oU" customClass="FavoritesViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1F-56-gc9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,27 +155,41 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Favorites" id="3Ds-Bl-Php">
-                                        <barButtonItem key="rightBarButtonItem" style="done" id="iTp-Ao-5fg">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z5f-Ja-7bf">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Edit"/>
-                                            </button>
+                                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Edit" id="FLH-Pa-fe1">
+                                            <connections>
+                                                <action selector="barButtonEditPressed:" destination="r7d-oq-4oU" id="iGO-HR-KDC"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-ek-Bjn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="r7d-oq-4oU" id="nG5-7o-VXa"/>
+                                    <outlet property="delegate" destination="r7d-oq-4oU" id="BIj-mB-RQq"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5Kh-ek-Bjn" firstAttribute="top" secondItem="IJR-pB-Ufg" secondAttribute="bottom" id="DOU-wa-IWH"/>
                             <constraint firstItem="IJR-pB-Ufg" firstAttribute="top" secondItem="dmo-fH-xIV" secondAttribute="top" id="JF9-tW-toK"/>
+                            <constraint firstItem="dmo-fH-xIV" firstAttribute="bottom" secondItem="5Kh-ek-Bjn" secondAttribute="bottom" id="P75-Fy-6Yy"/>
                             <constraint firstItem="IJR-pB-Ufg" firstAttribute="trailing" secondItem="dmo-fH-xIV" secondAttribute="trailing" id="Pea-QV-rUR"/>
+                            <constraint firstItem="5Kh-ek-Bjn" firstAttribute="leading" secondItem="dmo-fH-xIV" secondAttribute="leading" id="Pfx-mj-zBM"/>
                             <constraint firstItem="IJR-pB-Ufg" firstAttribute="leading" secondItem="dmo-fH-xIV" secondAttribute="leading" id="cn5-DU-NSw"/>
+                            <constraint firstItem="dmo-fH-xIV" firstAttribute="trailing" secondItem="5Kh-ek-Bjn" secondAttribute="trailing" id="dj9-tB-G09"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dmo-fH-xIV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_tab2" id="2zL-lD-2PR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="barButtonEdit" destination="FLH-Pa-fe1" id="Mr9-hN-7dd"/>
+                        <outlet property="tableViewData" destination="5Kh-ek-Bjn" id="Ljd-Tb-KIO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fs3-G8-prJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
