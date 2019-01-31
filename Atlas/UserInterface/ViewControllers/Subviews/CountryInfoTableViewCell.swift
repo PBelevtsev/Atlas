@@ -41,46 +41,38 @@ class CountryInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateForCountry(_ country : [String : Any]!, _ countries : [[String : Any]]?) {
+    func updateForCountry(_ country : Country!, _ countries : [Country]?) {
         
-        if let code = country["alpha2Code"] as? String {
-            labelFlag.text = ResourcesManager.shared.flagByCode(code)
-        }
-        if let currencies = namesFromArray(country, "currencies") {
-            labelCurrency.text = currencies.joined(separator: ", ")
-        }
-        if let languages = namesFromArray(country, "languages") {
-            labelLanguage.text = languages.joined(separator: ", ")
-        }
-        if let latlng = country["latlng"] as? [Double] {
-            if latlng.count == 2 {
-                let center = CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
-                let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
-                mapView.setRegion(region, animated: false)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = center
-                mapView.addAnnotation(annotation)
-            }
+        labelFlag.text = ResourcesManager.shared.flagByCode(country.alpha2)
+        
+        labelCurrency.text = namesFromArray(country.currencies)
+        labelLanguage.text = namesFromArray(country.languages)
+        
+        if country.latlng.count == 2 {
+            let center = CLLocationCoordinate2D(latitude: country.latlng[0], longitude: country.latlng[1])
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
+            mapView.setRegion(region, animated: false)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = center
+            mapView.addAnnotation(annotation)
         }
         if countries != nil {
             labelBoardsWith.text = "Boards with:"
         }
     }
     
-    func namesFromArray(_ country : [String : Any]!, _ field : String!) -> [String]? {
-        if let array = country[field] as? [[String : String]] {
-            var names = [String]()
-            for item in array {
-                if let name = item["name"] {
-                    names.append(name)
-                }
-            }
-            if names.count > 0 {
-                return names
+    func namesFromArray(_ array : [[String : String]]!) -> String? {
+        var names = [String]()
+        for item in array {
+            if let name = item["name"] {
+                names.append(name)
             }
         }
-        
-        return nil
+        if names.count > 0 {
+            return names.joined(separator: ", ")
+        } else {
+            return nil
+        }
     }
 }

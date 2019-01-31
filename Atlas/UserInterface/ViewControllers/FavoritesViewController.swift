@@ -15,7 +15,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var barButtonEdit: UIBarButtonItem!
     @IBOutlet weak var tableViewData: UITableView!
     
-    var countries: [[String : Any]]? {
+    var countries: [Country]? {
         didSet {
             tableViewData.reloadData()
             updateBarButtonEdit()

@@ -12,15 +12,15 @@ class CountryInfoViewController: UITableViewController {
 
     let cellIdentifiers = ["CountryInfoTableViewCell", "CountryTableViewCell"]
     
-    var country : [String : Any]!
-    var countries: [[String : Any]]? {
+    var country : Country!
+    var countries: [Country]? {
         didSet {
             self.tableView.reloadData()
         }
     }
     var isInitialized = false
     
-    static func makeCountryInfoVC(country: [String : Any]) -> CountryInfoViewController {
+    static func makeCountryInfoVC(country: Country) -> CountryInfoViewController {
         let controller = CountryInfoViewController.init(style: .plain)
         controller.country = country
         
@@ -30,9 +30,7 @@ class CountryInfoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let name = country["name"] as? String {
-            self.title = name
-        }
+        self.title = country.name
         
         for cellIdentifier in cellIdentifiers {
             self.tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)

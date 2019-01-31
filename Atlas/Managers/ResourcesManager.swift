@@ -13,9 +13,9 @@ class ResourcesManager: NSObject {
     static let shared = ResourcesManager()
     static let favoritesKey = "favoritesKey"
     
-    var flagsData = [[String : String]]()
-    var regions = [[String : Any]]()
-    var countries = [String : Any]()
+    var flags = [Flag]()
+    var regions = [Region]()
+    var countries = [String : Country]()
     var favorites = [String]()
     
     override init() {
@@ -27,19 +27,27 @@ class ResourcesManager: NSObject {
     func loadData() {
         
         if let path = Bundle.main.path(forResource: "data", ofType: "json") {
+            
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? [[String : String]] {
-                    flagsData = jsonResult
-                }
-            } catch {
-                
+                let decoder = JSONDecoder()
+                flags = try decoder.decode([Flag].self, from:data)
+            } catch let parsingError {
+                print("Error", parsingError)
             }
+            
         }
         
         if let path = Bundle.main.path(forResource: "regions", ofType: "plist") {
-            regions = NSArray(contentsOfFile: path) as! [[String : Any]]
+        
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let decoder = PropertyListDecoder()
+                regions = try decoder.decode([Region].self, from:data)
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+            
         }
         
         if let data = UserDefaults.standard.object(forKey: ResourcesManager.favoritesKey) as? String {
@@ -49,32 +57,26 @@ class ResourcesManager: NSObject {
     }
     
     func flagByCode(_ code : String!) -> String {
-        for flag in flagsData {
-            if let flagCode = flag["code"],
-                let emoji = flag["emoji"] {
-                if flagCode == code {
-                    return emoji
-                }
-            }
+        if let flag = flags.first(where: {$0.code == code}) {
+            return flag.emoji
+        } else {
+            return ""
         }
-        return ""
     }
     
-    func addToCache(_ countries: [[String : Any]]?) {
+    func addToCache(_ countries: [Country]?) {
         guard countries != nil else { return }
         
         for country in countries! {
-            if let code = country["alpha3Code"] as? String {
-                self.countries[code] = country
-            }
+            self.countries[country.alpha3] = country
         }
     }
     
-    func cacheCountries(_ codes: [String]!) -> [[String : Any]] {
-        var countries = [[String : Any]]()
+    func cacheCountries(_ codes: [String]!) -> [Country] {
+        var countries = [Country]()
         
         for code in codes {
-            if let country = self.countries[code] as? [String : Any] {
+            if let country = self.countries[code] {
                 countries.append(country)
             }
         }
@@ -82,39 +84,32 @@ class ResourcesManager: NSObject {
         return countries
     }
     
-    func searchByRegion(_ regionData : [String : Any]!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+    func searchByRegion(_ region : Region!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         
-        if let region = regionData["key"] as? String,
-            let isRegion = regionData["is_region"] as? Bool {
-            
-            RequestManager.shared.searchByRegion(isRegion ? "region" : "regionalbloc", region) { (countries, error) in
-                self.addToCache(countries)
-                completionHandler(countries, error)
-            }
-            
-        } else {
-            completionHandler(nil, nil)
+        RequestManager.shared.searchByRegion(region.isRegion ? "region" : "regionalbloc", region.key) { (countries, error) in
+            self.addToCache(countries)
+            completionHandler(countries, error)
         }
+        
     }
     
-    func searchByName(_ name : String!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+    func searchByName(_ name : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         RequestManager.shared.searchByName(name) { (countries, error) in
             self.addToCache(countries)
             completionHandler(countries, error)
         }
     }
     
-    func bordersCountries(_ country : [String : Any]!, _ completionHandler: @escaping (_ contries: [[String : Any]]?) -> ()) {
+    func bordersCountries(_ country : Country!, _ completionHandler: @escaping (_ contries: [Country]?) -> ()) {
         
-        if let borders = country["borders"] as? [String],
-            borders.count > 0 {
-            self.countriesByCodes(borders, completionHandler)
+        if country.borders.count > 0 {
+            self.countriesByCodes(country.borders, completionHandler)
         } else {
             completionHandler(nil)
         }
     }
     
-    func favoriteCountries(_ completionHandler: @escaping (_ contries: [[String : Any]]?) -> ()) {
+    func favoriteCountries(_ completionHandler: @escaping (_ contries: [Country]?) -> ()) {
         
         if favorites.count > 0 {
             countriesByCodes(favorites, completionHandler)
@@ -123,7 +118,7 @@ class ResourcesManager: NSObject {
         }
     }
     
-    func countriesByCodes(_ list : [String]!, _ completionHandler: @escaping (_ contries: [[String : Any]]?) -> ()) {
+    func countriesByCodes(_ list : [String]!, _ completionHandler: @escaping (_ contries: [Country]?) -> ()) {
         
         var codes = [String]()
         for code in list {
@@ -141,25 +136,18 @@ class ResourcesManager: NSObject {
         }
     }
 
-    func isFavorite(_ country : [String : Any]!) -> Bool {
-        if let code = country["alpha3Code"] as? String {
-            return favorites.contains(code)
-        }
-        return false
+    func isFavorite(_ country : Country!) -> Bool {
+        return favorites.contains(country.alpha3)
     }
     
-    func addToFavorites(_ country : [String : Any]!) {
-        if let code = country["alpha3Code"] as? String {
-            favorites.append(code)
-            saveFavorites()
-        }
+    func addToFavorites(_ country : Country!) {
+        favorites.append(country.alpha3)
+        saveFavorites()
     }
     
-    func removeFromFavorites(_ country : [String : Any]!) {
-        if let code = country["alpha3Code"] as? String {
-            favorites.removeAll { $0 == code }
-            saveFavorites()
-        }
+    func removeFromFavorites(_ country : Country!) {
+        favorites.removeAll { $0 == country.alpha3 }
+        saveFavorites()
     }
     
     func saveFavorites() {

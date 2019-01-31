@@ -18,7 +18,7 @@ class SearchCountryViewController: UIViewController, UITableViewDelegate, UITabl
     var searchInProgress = false
     var searchName = ""
     
-    var countries: [[String : Any]]? {
+    var countries: [Country]? {
         didSet {
             tableViewData.reloadData()
         }

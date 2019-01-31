@@ -20,56 +20,51 @@ class RequestManager: NSObject {
         self.baseURL = baseURL
         
         manager.requestSerializer = AFJSONRequestSerializer();
-        manager.responseSerializer = AFJSONResponseSerializer();
+        manager.responseSerializer = AFHTTPResponseSerializer();
     }
     
-    func searchByRegion(_ type : String!, _ region : String!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+    func parsingCountries(_ responseObject : Any?, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         
-        manager.get("\(baseURL)\(type!)/\(region!)", parameters: nil, progress: { (progress) in
+        if let data = responseObject as? Data {
+            do {
+                let decoder = JSONDecoder()
+                let countries = try decoder.decode([Country].self, from:data)
+                completionHandler(countries, nil);
+            } catch let parsingError {
+                completionHandler(nil, parsingError);
+            }
+        } else {
+            completionHandler(nil, nil)
+        }
+    }
+    
+    func makeCountriesRequest(_ urlString : String, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
+
+        manager.get(urlString, parameters: nil, progress: { (progress) in
             
         }, success: { (operation, responseObject) in
-            if let result = responseObject as? [[String : Any]] {
-                completionHandler(result, nil)
-            } else {
-                completionHandler(nil, nil);
-            }
+            self.parsingCountries(responseObject, completionHandler)
         }) { (operation, error) in
             completionHandler(nil, error)
         }
+    }
+    
+    func searchByRegion(_ type : String!, _ region : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
+        
+        makeCountriesRequest("\(baseURL)\(type!)/\(region!)", completionHandler)
         
     }
     
-    func searchByName(_ name : String!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+    func searchByName(_ name : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         
         let escapedName = name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-
-        manager.get("\(baseURL)name/\(escapedName!)", parameters: nil, progress: { (progress) in
-            
-        }, success: { (operation, responseObject) in
-            if let result = responseObject as? [[String : Any]] {
-                completionHandler(result, nil)
-            } else {
-                completionHandler(nil, nil);
-            }
-        }) { (operation, error) in
-            completionHandler(nil, error)
-        }
+        makeCountriesRequest("\(baseURL)name/\(escapedName!)", completionHandler)
         
     }
     
-    func searchByCodes(_ codes : [String]!, _ completionHandler: @escaping (_ contries: [[String : Any]]?, _ error: Error?) -> ()) {
+    func searchByCodes(_ codes : [String]!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         
-        manager.get("\(baseURL)alpha?codes=\(codes.joined(separator: ";"))", parameters: nil, progress: { (progress) in
-            
-        }, success: { (operation, responseObject) in
-            if let result = responseObject as? [[String : Any]] {
-                completionHandler(result, nil)
-            } else {
-                completionHandler(nil, nil);
-            }
-        }) { (operation, error) in
-            completionHandler(nil, error)
-        }
+        makeCountriesRequest("\(baseURL)alpha?codes=\(codes.joined(separator: ";"))", completionHandler)
         
     }
     

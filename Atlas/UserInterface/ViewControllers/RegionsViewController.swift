@@ -34,7 +34,7 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionTableViewCell", for: indexPath)
 
         let region = ResourcesManager.shared.regions[indexPath.row];
-        cell.textLabel?.text = region["title"] as? String
+        cell.textLabel?.text = region.title
         cell.textLabel?.numberOfLines = 2;
         
         return cell

@@ -35,21 +35,15 @@ class CountryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func updateForCountry(_ country : [String : Any]!) {
+    func updateForCountry(_ country : Country!) {
         updateForCountry(country, true)
     }
     
-    func updateForCountry(_ country : [String : Any]!, _ withNativeName : Bool) {
-        if let code = country["alpha2Code"] as? String {
-            labelFlag.text = ResourcesManager.shared.flagByCode(code)
-        }
-        if let name = country["name"] as? String {
-            labelName.text = name
-        }
+    func updateForCountry(_ country : Country!, _ withNativeName : Bool) {
+        labelFlag.text = ResourcesManager.shared.flagByCode(country.alpha2)
+        labelName.text = country.name
         if (withNativeName) {
-            if let nativeName = country["nativeName"] as? String {
-                labelNativeName.text = nativeName
-            }
+            labelNativeName.text = country.nativeName
         }
     }
     

@@ -13,13 +13,13 @@ class CountriesByRegionViewController: UITableViewController {
 
     let cellIdentifier = "CountryTableViewCell"
     
-    var regionData : [String : Any]!
-    var countries: [[String : Any]]!
+    var region : Region!
+    var countries: [Country]!
     
-    static func makeCountriesByRegionsVC(regionData: [String : Any], countries: [[String : Any]]) -> CountriesByRegionViewController {
+    static func makeCountriesByRegionsVC(region: Region, countries: [Country]) -> CountriesByRegionViewController {
         
         let controller = CountriesByRegionViewController.init(style: .plain)
-        controller.regionData = regionData
+        controller.region = region
         controller.countries = countries
         
         return controller
@@ -28,7 +28,7 @@ class CountriesByRegionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = regionData["title"] as? String
+        self.title = region.title
         self.tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.tableView.estimatedRowHeight = 60.0
 
