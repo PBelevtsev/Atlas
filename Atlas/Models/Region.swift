@@ -13,7 +13,6 @@ struct Region: Codable {
     var key: String
     var isRegion: Bool
     
-    //Custom Keys
     enum CodingKeys: String, CodingKey {
         case title
         case key

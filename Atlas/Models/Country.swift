@@ -16,10 +16,9 @@ struct Country: Codable {
     var nativeName: String
     var title: String
     var latlng: [Double]
-    var currencies: [[String : String]]
-    var languages: [[String : String]]
+    var currencies: [CountryData]
+    var languages: [CountryData]
     
-    //Custom Keys
     enum CodingKeys: String, CodingKey {
         case alpha2 = "alpha2Code"
         case alpha3 = "alpha3Code"
@@ -41,8 +40,8 @@ struct Country: Codable {
         self.nativeName = try container.decodeIfPresent(String.self, forKey: .nativeName) ?? ""
         self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
         self.latlng = try container.decodeIfPresent([Double].self, forKey: .latlng) ?? []
-        self.currencies = try container.decodeIfPresent([[String : String]].self, forKey: .currencies) ?? []
-        self.languages = try container.decodeIfPresent([[String : String]].self, forKey: .languages) ?? []
+        self.currencies = try container.decodeIfPresent([CountryData].self, forKey: .currencies) ?? []
+        self.languages = try container.decodeIfPresent([CountryData].self, forKey: .languages) ?? []
     }
     
 }

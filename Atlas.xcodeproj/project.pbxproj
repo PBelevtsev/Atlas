@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B3EAF9D21D3E6530072BA12 /* regions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3EAF9C21D3E6530072BA12 /* regions.plist */; };
 		3B3EAF9F21D3E8E40072BA12 /* RegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */; };
+		3B6C8B71220455A900CE647C /* CountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B70220455A900CE647C /* CountriesDataSource.swift */; };
+		3B6C8B7322045B6D00CE647C /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B7222045B6D00CE647C /* CountryData.swift */; };
 		3B8357722203A8D200C2DBDB /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357712203A8D200C2DBDB /* Flag.swift */; };
 		3B8357742203AE5600C2DBDB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357732203AE5600C2DBDB /* Country.swift */; };
 		3B8357762203B18000C2DBDB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357752203B18000C2DBDB /* Region.swift */; };
@@ -39,6 +41,8 @@
 		26A964F33328B0A182F3D752 /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		3B3EAF9C21D3E6530072BA12 /* regions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = regions.plist; sourceTree = "<group>"; };
 		3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsViewController.swift; sourceTree = "<group>"; };
+		3B6C8B70220455A900CE647C /* CountriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesDataSource.swift; sourceTree = "<group>"; };
+		3B6C8B7222045B6D00CE647C /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		3B8357712203A8D200C2DBDB /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		3B8357732203AE5600C2DBDB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		3B8357752203B18000C2DBDB /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -80,11 +84,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B6C8B6F2204557800CE647C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3B6C8B70220455A900CE647C /* CountriesDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		3B8357702203A7EC00C2DBDB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				3B8357712203A8D200C2DBDB /* Flag.swift */,
 				3B8357732203AE5600C2DBDB /* Country.swift */,
+				3B6C8B7222045B6D00CE647C /* CountryData.swift */,
 				3B8357752203B18000C2DBDB /* Region.swift */,
 			);
 			path = Models;
@@ -173,6 +186,7 @@
 		3BE25AAB21D3D8EC00D70B24 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3B6C8B6F2204557800CE647C /* DataSource */,
 				3BA25DE421D4FACC00411B7F /* Subviews */,
 				3BE25A9821D3D4B500D70B24 /* ViewController.swift */,
 				3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */,
@@ -336,6 +350,7 @@
 				3BE25A9721D3D4B500D70B24 /* AppDelegate.swift in Sources */,
 				3BA25DDF21D4EE1800411B7F /* RequestManager.swift in Sources */,
 				3BA25DEF21D504C200411B7F /* SearchBar.swift in Sources */,
+				3B6C8B7322045B6D00CE647C /* CountryData.swift in Sources */,
 				3BA25DF721D513E200411B7F /* CountryInfoViewController.swift in Sources */,
 				3BA25DDD21D4EDA300411B7F /* ConfigManager.swift in Sources */,
 				3BA25DE121D4F3E700411B7F /* RouteManager.swift in Sources */,
@@ -343,6 +358,7 @@
 				3B8357742203AE5600C2DBDB /* Country.swift in Sources */,
 				3BA25DED21D5049100411B7F /* Throttler.swift in Sources */,
 				3BA25DEA21D502E100411B7F /* SearchCountryViewController.swift in Sources */,
+				3B6C8B71220455A900CE647C /* CountriesDataSource.swift in Sources */,
 				3BE25AAE21D3D95300D70B24 /* ResourcesManager.swift in Sources */,
 				3BA25DF421D512A000411B7F /* CountryInfoTableViewCell.swift in Sources */,
 				3B97B58221D555280040B11A /* FavoritesViewController.swift in Sources */,

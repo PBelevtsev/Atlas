@@ -62,11 +62,11 @@ class CountryInfoTableViewCell: UITableViewCell {
         }
     }
     
-    func namesFromArray(_ array : [[String : String]]!) -> String? {
+    func namesFromArray(_ array : [CountryData]!) -> String? {
         var names = [String]()
         for item in array {
-            if let name = item["name"] {
-                names.append(name)
+            if item.name.count > 0 {
+                names.append(item.name)
             }
         }
         if names.count > 0 {

@@ -8,33 +8,26 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoritesViewController: UIViewController {
 
-    let cellIdentifier = "CountryTableViewCell"
+    var dataSource : CountriesDataSource?
     
     @IBOutlet weak var barButtonEdit: UIBarButtonItem!
     @IBOutlet weak var tableViewData: UITableView!
     
-    var countries: [Country]? {
-        didSet {
-            tableViewData.reloadData()
-            updateBarButtonEdit()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableViewData.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        tableViewData.estimatedRowHeight = 60.0
-
+        dataSource = CountriesDataSource(tableViewData: tableViewData, useNativeName: true)
+        dataSource!.useEditMode = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         ResourcesManager.shared.favoriteCountries({ (countries) in
-            self.countries = countries
+            self.dataSource!.countries = countries
+            self.updateBarButtonEdit()
         })
         
     }
@@ -50,46 +43,9 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func updateBarButtonEdit() {
         
-        barButtonEdit.isEnabled = (countries != nil) && (countries!.count > 0)
+        barButtonEdit.isEnabled = (dataSource!.countries != nil) && (dataSource!.countries!.count > 0)
         barButtonEdit.title = (tableViewData.isEditing && barButtonEdit.isEnabled) ? "Done" : "Edit"
         
-    }
-    
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        guard countries != nil else { return 0 }
-        return 1
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard countries != nil else { return 0 }
-        return countries!.count
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CountryTableViewCell
-        
-        cell.updateForCountry(countries![indexPath.row])
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        RouteManager.shared.showCountryInfoScreen(countries![indexPath.row])
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            ResourcesManager.shared.removeFromFavorites(countries![indexPath.row])
-            countries?.remove(at: indexPath.row)
-        }
     }
     
 }

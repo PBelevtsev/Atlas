@@ -11,8 +11,7 @@ import SVProgressHUD
 
 class CountriesByRegionViewController: UITableViewController {
 
-    let cellIdentifier = "CountryTableViewCell"
-    
+    var dataSource : CountriesDataSource?
     var region : Region!
     var countries: [Country]!
     
@@ -29,31 +28,9 @@ class CountriesByRegionViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = region.title
-        self.tableView.register(UINib.init(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        self.tableView.estimatedRowHeight = 60.0
-
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries!.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CountryTableViewCell
-
-        cell.updateForCountry(countries![indexPath.row])
+        dataSource = CountriesDataSource(tableViewData: self.tableView, useNativeName: true)
+        dataSource!.countries = self.countries
         
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        RouteManager.shared.showCountryInfoScreen(countries![indexPath.row])
     }
 
 }
