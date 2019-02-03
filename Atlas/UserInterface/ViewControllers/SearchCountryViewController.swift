@@ -10,7 +10,7 @@ import UIKit
 
 class SearchCountryViewController: UIViewController {
 
-    var countryManager = CountryManager()
+    var countryManager : CountryManager?
     var dataSource : CountriesDataSource?
     
     @IBOutlet weak var tableViewData: UITableView!
@@ -22,6 +22,8 @@ class SearchCountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        countryManager = ConfigManager.shared.countryManager()
+        
         dataSource = CountriesDataSource(tableViewData: tableViewData, useNativeName: false)
         
         searchBar.throttlingInterval = 0.5
@@ -67,7 +69,7 @@ class SearchCountryViewController: UIViewController {
     
     func searchProcess(_ name : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
         
-        countryManager.searchByName(name) { (countries, error) in
+        countryManager!.searchByName(name) { (countries, error) in
             self.dataSource!.countries = countries
             
             self.searchInProgress = false

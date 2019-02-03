@@ -7,7 +7,6 @@
 //
 
 import Foundation
-@testable import Atlas
 
 class FakeCountryManager: CountryManager {
     
@@ -28,6 +27,15 @@ class FakeCountryManager: CountryManager {
             
         } else {
             print("not found")
+        }
+        
+    }
+    
+    override func searchByRegion(_ region : Region!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
+        
+        countriesFromJson("nafta") { (countries) in
+            ResourcesManager.shared.addToCache(countries)
+            completionHandler(countries, nil)
         }
         
     }

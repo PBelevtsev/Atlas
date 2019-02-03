@@ -13,5 +13,12 @@ class ConfigManager: NSObject {
     static let shared = ConfigManager()
     
     static let remoteURL: String = "https://restcountries.eu/rest/v2/"
+    static let testModeId: String = "UITestingMode"
+    
+    var testMode = false
+    
+    func countryManager() -> CountryManager {
+        return self.testMode ? FakeCountryManager() : CountryManager()
+    }
     
 }

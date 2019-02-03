@@ -10,7 +10,7 @@ import UIKit
 
 class CountryInfoViewController: UITableViewController {
 
-    var countryManager = CountryManager()
+    var countryManager : CountryManager!
     var dataSource : CountriesDataSource?
     
     var country : Country!
@@ -20,6 +20,7 @@ class CountryInfoViewController: UITableViewController {
     static func makeCountryInfoVC(country: Country) -> CountryInfoViewController {
         let controller = CountryInfoViewController.init(style: .plain)
         controller.country = country
+        controller.countryManager = ConfigManager.shared.countryManager()
         
         return controller
     }

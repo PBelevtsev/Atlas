@@ -12,11 +12,7 @@
 		3B6C8B71220455A900CE647C /* CountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B70220455A900CE647C /* CountriesDataSource.swift */; };
 		3B6C8B7322045B6D00CE647C /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B7222045B6D00CE647C /* CountryData.swift */; };
 		3B7AB1842207179600054A3B /* AtlasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB1832207179600054A3B /* AtlasTests.swift */; };
-		3B7AB19B22072E2F00054A3B /* nafta.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB19A22072E2F00054A3B /* nafta.json */; };
-		3B7AB19D2207340200054A3B /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB19C2207340200054A3B /* search.json */; };
-		3B7AB19F2207343A00054A3B /* FakeCountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */; };
 		3B7AB1A1220738C800054A3B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB1A0220738C800054A3B /* CountryManager.swift */; };
-		3B7AB1A7220744D400054A3B /* borders.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB1A6220744D400054A3B /* borders.json */; };
 		3B8357722203A8D200C2DBDB /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357712203A8D200C2DBDB /* Flag.swift */; };
 		3B8357742203AE5600C2DBDB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357732203AE5600C2DBDB /* Country.swift */; };
 		3B8357762203B18000C2DBDB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357752203B18000C2DBDB /* Region.swift */; };
@@ -42,6 +38,8 @@
 		3BE25AB021D3D9BC00D70B24 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25AAF21D3D9BC00D70B24 /* data.json */; };
 		3BE837CD220766550007429A /* AtlasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE837CC220766550007429A /* AtlasUITests.swift */; };
 		3BE837D6220769BB0007429A /* UITestsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE837D5220769BB0007429A /* UITestsExtensions.swift */; };
+		3BE837DF220783710007429A /* FakeCountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE837DC2207809B0007429A /* FakeCountryManager.swift */; };
+		3BE837E1220784B60007429A /* TestData.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BE837D722077DA90007429A /* TestData.bundle */; };
 		60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,11 +69,7 @@
 		3B7AB1812207179600054A3B /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7AB1832207179600054A3B /* AtlasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasTests.swift; sourceTree = "<group>"; };
 		3B7AB1852207179600054A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B7AB19A22072E2F00054A3B /* nafta.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nafta.json; sourceTree = "<group>"; };
-		3B7AB19C2207340200054A3B /* search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
-		3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCountryManager.swift; sourceTree = "<group>"; };
 		3B7AB1A0220738C800054A3B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
-		3B7AB1A6220744D400054A3B /* borders.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = borders.json; sourceTree = "<group>"; };
 		3B8357712203A8D200C2DBDB /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		3B8357732203AE5600C2DBDB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		3B8357752203B18000C2DBDB /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -105,6 +99,8 @@
 		3BE837CC220766550007429A /* AtlasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasUITests.swift; sourceTree = "<group>"; };
 		3BE837CE220766550007429A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE837D5220769BB0007429A /* UITestsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsExtensions.swift; sourceTree = "<group>"; };
+		3BE837D722077DA90007429A /* TestData.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TestData.bundle; sourceTree = "<group>"; };
+		3BE837DC2207809B0007429A /* FakeCountryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeCountryManager.swift; sourceTree = "<group>"; };
 		6C1ED25F417752934D42FC51 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,21 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				3B7AB1832207179600054A3B /* AtlasTests.swift */,
-				3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */,
 				3B7AB1852207179600054A3B /* Info.plist */,
-				3B7AB19922072E0800054A3B /* Resources */,
 			);
 			path = AtlasTests;
-			sourceTree = "<group>";
-		};
-		3B7AB19922072E0800054A3B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3B7AB19A22072E2F00054A3B /* nafta.json */,
-				3B7AB19C2207340200054A3B /* search.json */,
-				3B7AB1A6220744D400054A3B /* borders.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		3B8357702203A7EC00C2DBDB /* Models */ = {
@@ -201,6 +185,7 @@
 				3BE25A9521D3D4B500D70B24 /* Atlas */,
 				3B7AB1822207179600054A3B /* AtlasTests */,
 				3BE837CB220766550007429A /* AtlasUITests */,
+				3BE837D722077DA90007429A /* TestData.bundle */,
 				3BE25A9421D3D4B500D70B24 /* Products */,
 				D414BCF7791468DB441F1A98 /* Pods */,
 				9B82EFE5731C33E4DE6595ED /* Frameworks */,
@@ -237,6 +222,7 @@
 				3BA25DDE21D4EE1800411B7F /* RequestManager.swift */,
 				3BA25DE021D4F3E700411B7F /* RouteManager.swift */,
 				3B7AB1A0220738C800054A3B /* CountryManager.swift */,
+				3BE837DC2207809B0007429A /* FakeCountryManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -427,9 +413,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7AB1A7220744D400054A3B /* borders.json in Resources */,
-				3B7AB19B22072E2F00054A3B /* nafta.json in Resources */,
-				3B7AB19D2207340200054A3B /* search.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA25DE821D4FAE900411B7F /* CountryTableViewCell.xib in Resources */,
+				3BE837E1220784B60007429A /* TestData.bundle in Resources */,
 				3BE25AA121D3D4B700D70B24 /* LaunchScreen.storyboard in Resources */,
 				3BA25DF521D512A000411B7F /* CountryInfoTableViewCell.xib in Resources */,
 				3BE25A9E21D3D4B700D70B24 /* Assets.xcassets in Resources */,
@@ -502,7 +486,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7AB19F2207343A00054A3B /* FakeCountryManager.swift in Sources */,
 				3B7AB1842207179600054A3B /* AtlasTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +497,7 @@
 				3BA25DE721D4FAE900411B7F /* CountryTableViewCell.swift in Sources */,
 				3B3EAF9F21D3E8E40072BA12 /* RegionsViewController.swift in Sources */,
 				3BE25A9921D3D4B500D70B24 /* ViewController.swift in Sources */,
+				3BE837DF220783710007429A /* FakeCountryManager.swift in Sources */,
 				3BE25A9721D3D4B500D70B24 /* AppDelegate.swift in Sources */,
 				3BA25DDF21D4EE1800411B7F /* RequestManager.swift in Sources */,
 				3BA25DEF21D504C200411B7F /* SearchBar.swift in Sources */,

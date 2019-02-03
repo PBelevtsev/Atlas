@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let countryManager = CountryManager()
+    var countryManager : CountryManager?
     
     @IBOutlet weak var tableViewData: UITableView!
     var regions = [Region]()
@@ -19,6 +19,7 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        countryManager = ConfigManager.shared.countryManager()
         tableViewData.estimatedRowHeight = 44.0
         initData()
         
@@ -54,7 +55,7 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let region = regions[indexPath.row];
         
         SVProgressHUD.show()
-        countryManager.searchByRegion(region) { (countries, error) in
+        countryManager!.searchByRegion(region) { (countries, error) in
             SVProgressHUD.dismiss()
             if countries != nil {
                 RouteManager.shared.showCountriesByRegionScreen(region, countries)

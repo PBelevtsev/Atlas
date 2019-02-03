@@ -9,7 +9,6 @@
 import XCTest
 @testable import Atlas
 
-
 class AtlasRegionsTests: XCTestCase {
     var regionsVC : RegionsViewController!
     
@@ -34,9 +33,9 @@ class AtlasSearchTests: XCTestCase {
     var searchVC : SearchCountryViewController!
     
     override func setUp() {
+        ConfigManager.shared.testMode = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: SearchCountryViewController = storyboard.instantiateViewController(withIdentifier: "SearchCountryViewController") as! SearchCountryViewController
-        vc.countryManager = FakeCountryManager()
         let _ = vc.view
         searchVC = vc
     }
@@ -81,12 +80,11 @@ class AtlasCountryInfoTests: XCTestCase {
     var countryInfoVC : CountryInfoViewController!
     
     override func setUp() {
+        ConfigManager.shared.testMode = true
         let countryManager = FakeCountryManager()
         countryManager.countriesFromJson("search") { (countries) in
             let vc: CountryInfoViewController = CountryInfoViewController.makeCountryInfoVC(country: countries![0])
             let _ = vc.view
-            vc.countryManager = countryManager
-            
             self.countryInfoVC = vc
             
             self.countryInfoVC.beginAppearanceTransition(true, animated: false)
