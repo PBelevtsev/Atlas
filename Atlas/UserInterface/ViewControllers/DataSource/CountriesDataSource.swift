@@ -11,6 +11,11 @@ import UIKit
 
 class CountriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
+    enum CountriesDataSourceSection : Int {
+        case countryInfo = 0
+        case countriesList
+    }
+    
     let cellIdentifiers = ["CountryInfoTableViewCell", "CountryTableViewCell"]
     
     weak var tableViewData: UITableView!
@@ -51,7 +56,7 @@ class CountriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section == 0) {
+        if (section == CountriesDataSourceSection.countryInfo.rawValue) {
             guard country != nil else { return 0 }
             return 1
         } else {
@@ -62,7 +67,7 @@ class CountriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 0) {
+        if (indexPath.section == CountriesDataSourceSection.countryInfo.rawValue) {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.section], for: indexPath) as! CountryInfoTableViewCell
             
@@ -84,7 +89,7 @@ class CountriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (indexPath.section == 1) {
+        if (indexPath.section == CountriesDataSourceSection.countriesList.rawValue) {
             RouteManager.shared.showCountryInfoScreen(countries![indexPath.row])
         }
         
@@ -96,7 +101,7 @@ class CountriesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if useEditMode && (indexPath.section == 1) {
+        if useEditMode && (indexPath.section == CountriesDataSourceSection.countriesList.rawValue) {
             if editingStyle == .delete {
                 ResourcesManager.shared.removeFromFavorites(countries![indexPath.row])
                 countries?.remove(at: indexPath.row)
