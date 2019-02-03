@@ -10,6 +10,8 @@ import UIKit
 
 public class SearchBar: UISearchBar, UISearchBarDelegate {
     
+    public let SearchMinSymbolsCount = 3
+    
     /// Throttle engine
     private var throttler: Throttler? = nil
     
@@ -42,24 +44,33 @@ public class SearchBar: UISearchBar, UISearchBarDelegate {
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //self.onSearch?(self.text ?? "")
         self.resignFirstResponder()
     }
     
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let throttler = self.throttler else {
-            self.onSearch?(searchText)
+            self.onSearchProcess(searchText)
             return
         }
         throttler.throttle {
             DispatchQueue.main.async {
-                self.onSearch?(self.text ?? "")
+                self.onSearchProcess(self.searchText())
             }
         }
     }
     
-    public func searchText() -> String! {
-        return (self.text ?? "")
+    public func searchText() -> String {
+        return self.text ?? ""
+    }
+    
+    public func searchTextIsCorrectSize(_ text : String!) -> Bool {
+        return (text.count == 0) || (text.count >= self.SearchMinSymbolsCount);
+    }
+    
+    func onSearchProcess(_ text : String!) {
+        if searchTextIsCorrectSize(text) {
+            self.onSearch?(text)
+        }
     }
     
 }

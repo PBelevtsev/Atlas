@@ -11,15 +11,23 @@ import SVProgressHUD
 
 class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let countryManager = CountryManager()
+    
     @IBOutlet weak var tableViewData: UITableView!
+    var regions = [Region]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableViewData.estimatedRowHeight = 44.0
-
+        initData()
+        
     }
 
+    func initData() {
+        regions = ResourcesManager.shared.regions;
+    }
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,13 +35,13 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ResourcesManager.shared.regions.count;
+        return regions.count;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionTableViewCell", for: indexPath)
 
-        let region = ResourcesManager.shared.regions[indexPath.row];
+        let region = regions[indexPath.row];
         cell.textLabel?.text = region.title
         cell.textLabel?.numberOfLines = 2;
         
@@ -43,10 +51,10 @@ class RegionsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let region = ResourcesManager.shared.regions[indexPath.row];
+        let region = regions[indexPath.row];
         
         SVProgressHUD.show()
-        ResourcesManager.shared.searchByRegion(region) { (countries, error) in
+        countryManager.searchByRegion(region) { (countries, error) in
             SVProgressHUD.dismiss()
             if countries != nil {
                 RouteManager.shared.showCountriesByRegionScreen(region, countries)

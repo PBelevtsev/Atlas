@@ -10,6 +10,8 @@ import UIKit
 
 class CountryInfoViewController: UITableViewController {
 
+    let countryManager = CountryManager()
+    
     var dataSource : CountriesDataSource?
     
     var country : Country!
@@ -38,7 +40,7 @@ class CountryInfoViewController: UITableViewController {
         if !isInitialized {
             isInitialized = true
             
-            ResourcesManager.shared.bordersCountries(country) { (countries) in
+            countryManager.bordersCountries(country) { (countries) in
                 if countries != nil {
                     self.dataSource!.countries = countries
                 }
@@ -69,4 +71,9 @@ class CountryInfoViewController: UITableViewController {
         }
     }
 
+    
+    func borderCountriesCount() -> Int {
+        return self.dataSource!.countries?.count ?? 0
+    }
+    
 }

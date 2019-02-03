@@ -11,6 +11,12 @@
 		3B3EAF9F21D3E8E40072BA12 /* RegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */; };
 		3B6C8B71220455A900CE647C /* CountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B70220455A900CE647C /* CountriesDataSource.swift */; };
 		3B6C8B7322045B6D00CE647C /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C8B7222045B6D00CE647C /* CountryData.swift */; };
+		3B7AB1842207179600054A3B /* AtlasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB1832207179600054A3B /* AtlasTests.swift */; };
+		3B7AB19B22072E2F00054A3B /* nafta.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB19A22072E2F00054A3B /* nafta.json */; };
+		3B7AB19D2207340200054A3B /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB19C2207340200054A3B /* search.json */; };
+		3B7AB19F2207343A00054A3B /* FakeCountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */; };
+		3B7AB1A1220738C800054A3B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB1A0220738C800054A3B /* CountryManager.swift */; };
+		3B7AB1A7220744D400054A3B /* borders.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AB1A6220744D400054A3B /* borders.json */; };
 		3B8357722203A8D200C2DBDB /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357712203A8D200C2DBDB /* Flag.swift */; };
 		3B8357742203AE5600C2DBDB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357732203AE5600C2DBDB /* Country.swift */; };
 		3B8357762203B18000C2DBDB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8357752203B18000C2DBDB /* Region.swift */; };
@@ -37,12 +43,30 @@
 		60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3B7AB1862207179600054A3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BE25A8B21D3D4B500D70B24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE25A9221D3D4B500D70B24;
+			remoteInfo = Atlas;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		26A964F33328B0A182F3D752 /* Pods-Atlas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.release.xcconfig"; sourceTree = "<group>"; };
 		3B3EAF9C21D3E6530072BA12 /* regions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = regions.plist; sourceTree = "<group>"; };
 		3B3EAF9E21D3E8E40072BA12 /* RegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsViewController.swift; sourceTree = "<group>"; };
 		3B6C8B70220455A900CE647C /* CountriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesDataSource.swift; sourceTree = "<group>"; };
 		3B6C8B7222045B6D00CE647C /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
+		3B7AB1812207179600054A3B /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B7AB1832207179600054A3B /* AtlasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasTests.swift; sourceTree = "<group>"; };
+		3B7AB1852207179600054A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B7AB19A22072E2F00054A3B /* nafta.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nafta.json; sourceTree = "<group>"; };
+		3B7AB19C2207340200054A3B /* search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCountryManager.swift; sourceTree = "<group>"; };
+		3B7AB1A0220738C800054A3B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
+		3B7AB1A6220744D400054A3B /* borders.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = borders.json; sourceTree = "<group>"; };
 		3B8357712203A8D200C2DBDB /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		3B8357732203AE5600C2DBDB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		3B8357752203B18000C2DBDB /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -73,6 +97,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B7AB17E2207179600054A3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BE25A9021D3D4B500D70B24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +121,27 @@
 				3B6C8B70220455A900CE647C /* CountriesDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		3B7AB1822207179600054A3B /* AtlasTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B7AB1832207179600054A3B /* AtlasTests.swift */,
+				3B7AB19E2207343A00054A3B /* FakeCountryManager.swift */,
+				3B7AB1852207179600054A3B /* Info.plist */,
+				3B7AB19922072E0800054A3B /* Resources */,
+			);
+			path = AtlasTests;
+			sourceTree = "<group>";
+		};
+		3B7AB19922072E0800054A3B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B7AB19A22072E2F00054A3B /* nafta.json */,
+				3B7AB19C2207340200054A3B /* search.json */,
+				3B7AB1A6220744D400054A3B /* borders.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3B8357702203A7EC00C2DBDB /* Models */ = {
@@ -127,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE25A9521D3D4B500D70B24 /* Atlas */,
+				3B7AB1822207179600054A3B /* AtlasTests */,
 				3BE25A9421D3D4B500D70B24 /* Products */,
 				D414BCF7791468DB441F1A98 /* Pods */,
 				9B82EFE5731C33E4DE6595ED /* Frameworks */,
@@ -137,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE25A9321D3D4B500D70B24 /* Atlas.app */,
+				3B7AB1812207179600054A3B /* AtlasTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,6 +214,7 @@
 				3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */,
 				3BA25DDE21D4EE1800411B7F /* RequestManager.swift */,
 				3BA25DE021D4F3E700411B7F /* RouteManager.swift */,
+				3B7AB1A0220738C800054A3B /* CountryManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -229,6 +284,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B7AB1802207179600054A3B /* AtlasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B7AB18A2207179600054A3B /* Build configuration list for PBXNativeTarget "AtlasTests" */;
+			buildPhases = (
+				3B7AB17D2207179600054A3B /* Sources */,
+				3B7AB17E2207179600054A3B /* Frameworks */,
+				3B7AB17F2207179600054A3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B7AB1872207179600054A3B /* PBXTargetDependency */,
+			);
+			name = AtlasTests;
+			productName = AtlasTests;
+			productReference = 3B7AB1812207179600054A3B /* AtlasTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3BE25A9221D3D4B500D70B24 /* Atlas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BE25AA521D3D4B700D70B24 /* Build configuration list for PBXNativeTarget "Atlas" */;
@@ -258,6 +331,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Pavel Belevtsev";
 				TargetAttributes = {
+					3B7AB1802207179600054A3B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 3BE25A9221D3D4B500D70B24;
+					};
 					3BE25A9221D3D4B500D70B24 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -277,11 +354,22 @@
 			projectRoot = "";
 			targets = (
 				3BE25A9221D3D4B500D70B24 /* Atlas */,
+				3B7AB1802207179600054A3B /* AtlasTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B7AB17F2207179600054A3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B7AB1A7220744D400054A3B /* borders.json in Resources */,
+				3B7AB19B22072E2F00054A3B /* nafta.json in Resources */,
+				3B7AB19D2207340200054A3B /* search.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BE25A9121D3D4B500D70B24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +428,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B7AB17D2207179600054A3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B7AB19F2207343A00054A3B /* FakeCountryManager.swift in Sources */,
+				3B7AB1842207179600054A3B /* AtlasTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BE25A8F21D3D4B500D70B24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,10 +461,19 @@
 				3B97B58221D555280040B11A /* FavoritesViewController.swift in Sources */,
 				3BA25DE321D4F50E00411B7F /* CountriesByRegionViewController.swift in Sources */,
 				3B8357722203A8D200C2DBDB /* Flag.swift in Sources */,
+				3B7AB1A1220738C800054A3B /* CountryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B7AB1872207179600054A3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE25A9221D3D4B500D70B24 /* Atlas */;
+			targetProxy = 3B7AB1862207179600054A3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3BE25A9A21D3D4B500D70B24 /* Main.storyboard */ = {
@@ -389,6 +495,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B7AB1882207179600054A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtlasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AtlasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Atlas.app/Atlas";
+			};
+			name = Debug;
+		};
+		3B7AB1892207179600054A3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtlasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.AtlasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Atlas.app/Atlas";
+			};
+			name = Release;
+		};
 		3BE25AA321D3D4B700D70B24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -544,6 +688,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B7AB18A2207179600054A3B /* Build configuration list for PBXNativeTarget "AtlasTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B7AB1882207179600054A3B /* Debug */,
+				3B7AB1892207179600054A3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3BE25A8E21D3D4B500D70B24 /* Build configuration list for PBXProject "Atlas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

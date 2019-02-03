@@ -10,6 +10,7 @@ import UIKit
 
 class SearchCountryViewController: UIViewController {
 
+    var countryManager = CountryManager()
     var dataSource : CountriesDataSource?
     
     @IBOutlet weak var tableViewData: UITableView!
@@ -49,17 +50,40 @@ class SearchCountryViewController: UIViewController {
             dataSource!.countries = nil
         } else {
             searchInProgress = true
-            ResourcesManager.shared.searchByName(name) { (countries, error) in
-                self.dataSource!.countries = countries
-                
-                self.searchInProgress = false
-                
-                if (name != self.searchName) {
-                    self.searchCountry(self.searchName)
-                }
+            searchProcess(name) { (countries, error) in
+            
             }
+        }
+    }
+
+    func searchTextIsCorrectSize() -> Bool {
+        return self.searchBar.searchTextIsCorrectSize(self.searchBar.searchText())
+    }
+    
+    func searchProcess(_ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
+        searchProcess(self.searchBar.searchText()) { (countries, error) in
+            
+        }
+    }
+    
+    func searchProcess(_ name : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
+        
+        countryManager.searchByName(name) { (countries, error) in
+            self.dataSource!.countries = countries
+            
+            self.searchInProgress = false
+            
+            if (name != self.searchName) {
+                self.searchCountry(self.searchName)
+            }
+            
+            completionHandler(countries, error)
         }
         
     }
-
+    
+    func searchResultsCount() -> Int {
+        return self.dataSource!.countries?.count ?? 0
+    }
+    
 }

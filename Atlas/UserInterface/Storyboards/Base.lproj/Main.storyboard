@@ -28,7 +28,7 @@
         <!--Search Country View Controller-->
         <scene sceneID="RSk-fT-s0H">
             <objects>
-                <viewController id="37M-WZ-CAo" customClass="SearchCountryViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchCountryViewController" id="37M-WZ-CAo" customClass="SearchCountryViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZnT-d7-h9g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
         <!--Regions View Controller-->
         <scene sceneID="Xs2-EJ-8R5">
             <objects>
-                <viewController id="vIj-n7-MJw" customClass="RegionsViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegionsViewController" id="vIj-n7-MJw" customClass="RegionsViewController" customModule="Atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IIE-bI-4Ac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -21,12 +21,19 @@ class ResourcesManager: NSObject {
     override init() {
         super.init()
         
-        loadData()
+        loadData(flagsData: "data.json", regionsData: "regions.plist")
     }
     
-    func loadData() {
+    func loadData(flagsData fileNameFlags : String, regionsData fileNameRegions : String) {
         
-        if let path = Bundle.main.path(forResource: "data", ofType: "json") {
+        fillFlagsData(fileNameFlags)
+        fillRegionsData(fileNameRegions)
+        fillFavorites()
+        
+    }
+    
+    func fillFlagsData(_ fileName : String) {
+        if let path = Bundle.main.path(forResource: fileName, ofType: "") {
             
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -37,9 +44,10 @@ class ResourcesManager: NSObject {
             }
             
         }
-        
-        if let path = Bundle.main.path(forResource: "regions", ofType: "plist") {
-        
+    }
+    
+    func fillRegionsData(_ fileName : String) {
+        if let path = Bundle.main.path(forResource: fileName, ofType: "") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let decoder = PropertyListDecoder()
@@ -47,9 +55,10 @@ class ResourcesManager: NSObject {
             } catch let parsingError {
                 print("Error", parsingError)
             }
-            
         }
-        
+    }
+    
+    func fillFavorites() {
         if let data = UserDefaults.standard.object(forKey: ResourcesManager.favoritesKey) as? String {
             let array = data.components(separatedBy: ";")
             favorites.append(contentsOf: array)
@@ -82,31 +91,6 @@ class ResourcesManager: NSObject {
         }
         
         return countries
-    }
-    
-    func searchByRegion(_ region : Region!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
-        
-        RequestManager.shared.searchByRegion(region.isRegion ? "region" : "regionalbloc", region.key) { (countries, error) in
-            self.addToCache(countries)
-            completionHandler(countries, error)
-        }
-        
-    }
-    
-    func searchByName(_ name : String!, _ completionHandler: @escaping (_ contries: [Country]?, _ error: Error?) -> ()) {
-        RequestManager.shared.searchByName(name) { (countries, error) in
-            self.addToCache(countries)
-            completionHandler(countries, error)
-        }
-    }
-    
-    func bordersCountries(_ country : Country!, _ completionHandler: @escaping (_ contries: [Country]?) -> ()) {
-        
-        if country.borders.count > 0 {
-            self.countriesByCodes(country.borders, completionHandler)
-        } else {
-            completionHandler(nil)
-        }
     }
     
     func favoriteCountries(_ completionHandler: @escaping (_ contries: [Country]?) -> ()) {
