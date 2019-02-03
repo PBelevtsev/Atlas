@@ -25,7 +25,6 @@ class SearchCountryViewController: UIViewController {
         dataSource = CountriesDataSource(tableViewData: tableViewData, useNativeName: false)
         
         searchBar.throttlingInterval = 0.5
-     
         searchBar.onSearch = { text in
             self.searchCountry(text)
         }

@@ -10,8 +10,7 @@ import UIKit
 
 class CountryInfoViewController: UITableViewController {
 
-    let countryManager = CountryManager()
-    
+    var countryManager = CountryManager()
     var dataSource : CountriesDataSource?
     
     var country : Country!
@@ -31,6 +30,8 @@ class CountryInfoViewController: UITableViewController {
         self.title = country.name
         dataSource = CountriesDataSource(tableViewData: self.tableView, useNativeName: true)
         dataSource!.country = country
+        
+        self.tableView.accessibilityLabel = "tableViewCountryInfo"
         
     }
     
@@ -66,8 +67,10 @@ class CountryInfoViewController: UITableViewController {
     func updateFavoriteButton() {
         if ResourcesManager.shared.isFavorite(country) {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon_tab2_selected"), style: .plain, target: self, action: #selector(removeFromFavorites))
+            self.navigationItem.rightBarButtonItem?.accessibilityLabel = "removeFromFavoritesButton"
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon_tab2"), style: .plain, target: self, action: #selector(addToFavorites))
+            self.navigationItem.rightBarButtonItem?.accessibilityLabel = "addToFavoritesButton"
         }
     }
 

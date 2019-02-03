@@ -85,6 +85,8 @@ class AtlasCountryInfoTests: XCTestCase {
         countryManager.countriesFromJson("search") { (countries) in
             let vc: CountryInfoViewController = CountryInfoViewController.makeCountryInfoVC(country: countries![0])
             let _ = vc.view
+            vc.countryManager = countryManager
+            
             self.countryInfoVC = vc
             
             self.countryInfoVC.beginAppearanceTransition(true, animated: false)
@@ -97,8 +99,8 @@ class AtlasCountryInfoTests: XCTestCase {
     }
     
     func testCountriesByRegionText() {
-        let exp = expectation(description: "Test after 0.1 seconds")
-        _ = XCTWaiter.wait(for: [exp], timeout: 0.1)
+        let exp = expectation(description: "Test after 1 second")
+        _ = XCTWaiter.wait(for: [exp], timeout: 1)
         
         XCTAssertEqual(countryInfoVC.borderCountriesCount(), 7, "Check borders countries list count")
     }

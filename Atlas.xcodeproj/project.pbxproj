@@ -40,11 +40,20 @@
 		3BE25AA121D3D4B700D70B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25A9F21D3D4B700D70B24 /* LaunchScreen.storyboard */; };
 		3BE25AAE21D3D95300D70B24 /* ResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */; };
 		3BE25AB021D3D9BC00D70B24 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE25AAF21D3D9BC00D70B24 /* data.json */; };
+		3BE837CD220766550007429A /* AtlasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE837CC220766550007429A /* AtlasUITests.swift */; };
+		3BE837D6220769BB0007429A /* UITestsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE837D5220769BB0007429A /* UITestsExtensions.swift */; };
 		60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3B7AB1862207179600054A3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BE25A8B21D3D4B500D70B24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BE25A9221D3D4B500D70B24;
+			remoteInfo = Atlas;
+		};
+		3BE837CF220766550007429A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3BE25A8B21D3D4B500D70B24 /* Project object */;
 			proxyType = 1;
@@ -92,6 +101,10 @@
 		3BE25AA221D3D4B700D70B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE25AAD21D3D95300D70B24 /* ResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesManager.swift; sourceTree = "<group>"; };
 		3BE25AAF21D3D9BC00D70B24 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		3BE837CA220766550007429A /* AtlasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE837CC220766550007429A /* AtlasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasUITests.swift; sourceTree = "<group>"; };
+		3BE837CE220766550007429A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BE837D5220769BB0007429A /* UITestsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestsExtensions.swift; sourceTree = "<group>"; };
 		6C1ED25F417752934D42FC51 /* Pods-Atlas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Atlas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Atlas/Pods-Atlas.debug.xcconfig"; sourceTree = "<group>"; };
 		C7E0800D0DF4BBB999FAF66D /* Pods_Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +122,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C7B10C692EB219A90DA83C /* Pods_Atlas.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE837C7220766550007429A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +200,7 @@
 			children = (
 				3BE25A9521D3D4B500D70B24 /* Atlas */,
 				3B7AB1822207179600054A3B /* AtlasTests */,
+				3BE837CB220766550007429A /* AtlasUITests */,
 				3BE25A9421D3D4B500D70B24 /* Products */,
 				D414BCF7791468DB441F1A98 /* Pods */,
 				9B82EFE5731C33E4DE6595ED /* Frameworks */,
@@ -191,6 +212,7 @@
 			children = (
 				3BE25A9321D3D4B500D70B24 /* Atlas.app */,
 				3B7AB1812207179600054A3B /* AtlasTests.xctest */,
+				3BE837CA220766550007429A /* AtlasUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +286,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		3BE837CB220766550007429A /* AtlasUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BE837D42207699A0007429A /* Extensions */,
+				3BE837CC220766550007429A /* AtlasUITests.swift */,
+				3BE837CE220766550007429A /* Info.plist */,
+			);
+			path = AtlasUITests;
+			sourceTree = "<group>";
+		};
+		3BE837D42207699A0007429A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3BE837D5220769BB0007429A /* UITestsExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9B82EFE5731C33E4DE6595ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +361,24 @@
 			productReference = 3BE25A9321D3D4B500D70B24 /* Atlas.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3BE837C9220766550007429A /* AtlasUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE837D3220766550007429A /* Build configuration list for PBXNativeTarget "AtlasUITests" */;
+			buildPhases = (
+				3BE837C6220766550007429A /* Sources */,
+				3BE837C7220766550007429A /* Frameworks */,
+				3BE837C8220766550007429A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE837D0220766550007429A /* PBXTargetDependency */,
+			);
+			name = AtlasUITests;
+			productName = AtlasUITests;
+			productReference = 3BE837CA220766550007429A /* AtlasUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,6 +395,10 @@
 					};
 					3BE25A9221D3D4B500D70B24 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					3BE837C9220766550007429A = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 3BE25A9221D3D4B500D70B24;
 					};
 				};
 			};
@@ -355,6 +417,7 @@
 			targets = (
 				3BE25A9221D3D4B500D70B24 /* Atlas */,
 				3B7AB1802207179600054A3B /* AtlasTests */,
+				3BE837C9220766550007429A /* AtlasUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,6 +444,13 @@
 				3BE25A9C21D3D4B500D70B24 /* Main.storyboard in Resources */,
 				3BE25AB021D3D9BC00D70B24 /* data.json in Resources */,
 				3B3EAF9D21D3E6530072BA12 /* regions.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BE837C8220766550007429A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +535,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BE837C6220766550007429A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE837CD220766550007429A /* AtlasUITests.swift in Sources */,
+				3BE837D6220769BB0007429A /* UITestsExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -472,6 +551,11 @@
 			isa = PBXTargetDependency;
 			target = 3BE25A9221D3D4B500D70B24 /* Atlas */;
 			targetProxy = 3B7AB1862207179600054A3B /* PBXContainerItemProxy */;
+		};
+		3BE837D0220766550007429A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BE25A9221D3D4B500D70B24 /* Atlas */;
+			targetProxy = 3BE837CF220766550007429A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -685,6 +769,42 @@
 			};
 			name = Release;
 		};
+		3BE837D1220766550007429A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtlasUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = non.company.AtlasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Atlas;
+			};
+			name = Debug;
+		};
+		3BE837D2220766550007429A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtlasUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = non.company.AtlasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Atlas;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -711,6 +831,15 @@
 			buildConfigurations = (
 				3BE25AA621D3D4B700D70B24 /* Debug */,
 				3BE25AA721D3D4B700D70B24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE837D3220766550007429A /* Build configuration list for PBXNativeTarget "AtlasUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE837D1220766550007429A /* Debug */,
+				3BE837D2220766550007429A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
