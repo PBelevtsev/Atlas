@@ -39,8 +39,8 @@ class AtlasUITests: XCTestCase {
         // Open region - show countries list
         tablesQuery.staticTexts["North American Free Trade Agreement"].tap()
         sleep(1)
-        app.navigationBars["North American Free Trade Agreement"].buttons["Back"].tap()
-        
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+    
         // Select Search tab, search country
         app.tabBars.children(matching: .button).element(boundBy: 1).tap()
         let searchBar = app.otherElements["searchBarCountries"]
