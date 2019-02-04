@@ -134,6 +134,11 @@ class ResourcesManager: NSObject {
         saveFavorites()
     }
     
+    func clearFavorites() {
+        favorites.removeAll()
+        saveFavorites()
+    }
+    
     func saveFavorites() {
         if favorites.count > 0 {
             favorites = favorites.sorted(by: <)

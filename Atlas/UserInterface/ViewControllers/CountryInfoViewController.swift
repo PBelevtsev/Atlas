@@ -55,12 +55,12 @@ class CountryInfoViewController: UITableViewController {
     
     // MARK: - Favorites
     
-    @objc func addToFavorites(sender: UIBarButtonItem!) {
+    @objc func addToFavorites() {
         ResourcesManager.shared.addToFavorites(country)
         updateFavoriteButton()
     }
     
-    @objc func removeFromFavorites(sender: UIBarButtonItem!) {
+    @objc func removeFromFavorites() {
         ResourcesManager.shared.removeFromFavorites(country)
         updateFavoriteButton()
     }
@@ -75,7 +75,6 @@ class CountryInfoViewController: UITableViewController {
         }
     }
 
-    
     func borderCountriesCount() -> Int {
         return self.dataSource!.countries?.count ?? 0
     }

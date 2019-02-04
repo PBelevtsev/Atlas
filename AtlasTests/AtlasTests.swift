@@ -44,7 +44,7 @@ class AtlasSearchTests: XCTestCase {
         searchVC = nil
     }
     
-    func testSearchText() {
+    func testSearch() {
         searchVC.searchBar.text = "Ukr"
         XCTAssert(searchVC.searchTextIsCorrectSize(), "Search text has correct size")
         searchVC.searchProcess() { (countries, error) in
@@ -70,16 +70,18 @@ class AtlasCountriesByRegionTests: XCTestCase {
         countriesVC = nil
     }
     
-    func testCountriesByRegionText() {
+    func testCountriesByRegion() {
         XCTAssertEqual(countriesVC.countries.count, 3, "Check NAFTA countries list count")
     }
     
 }
 
-class AtlasCountryInfoTests: XCTestCase {
+class AtlasCountryInfoFavoritesTests: XCTestCase {
     var countryInfoVC : CountryInfoViewController!
+    var favoritesVC : FavoritesViewController!
     
     override func setUp() {
+        ResourcesManager.shared.clearFavorites()
         ConfigManager.shared.testMode = true
         let countryManager = FakeCountryManager()
         countryManager.countriesFromJson("search") { (countries) in
@@ -90,17 +92,33 @@ class AtlasCountryInfoTests: XCTestCase {
             self.countryInfoVC.beginAppearanceTransition(true, animated: false)
             self.countryInfoVC.endAppearanceTransition()
         }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: FavoritesViewController = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+        let _ = vc.view
+        favoritesVC = vc
+        
     }
     
     override func tearDown() {
         countryInfoVC = nil
+        favoritesVC = nil
     }
     
-    func testCountriesByRegionText() {
+    func testCountryInfoFavorites() {
         let exp = expectation(description: "Test after 1 second")
         _ = XCTWaiter.wait(for: [exp], timeout: 1)
         
         XCTAssertEqual(countryInfoVC.borderCountriesCount(), 7, "Check borders countries list count")
+        countryInfoVC.addToFavorites()
+        
+        favoritesVC.beginAppearanceTransition(true, animated: false)
+        favoritesVC.endAppearanceTransition()
+        
+        let expFav = expectation(description: "Test after 1 second")
+        _ = XCTWaiter.wait(for: [expFav], timeout: 1)
+        
+        XCTAssertEqual(favoritesVC.favoritesCountriesCount(), 1, "Check favorites countries list count")
     }
     
 }

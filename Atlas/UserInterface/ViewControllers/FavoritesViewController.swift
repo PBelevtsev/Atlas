@@ -48,4 +48,8 @@ class FavoritesViewController: UIViewController {
         
     }
     
+    func favoritesCountriesCount() -> Int {
+        return self.dataSource!.countries?.count ?? 0
+    }
+    
 }
