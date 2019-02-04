@@ -38,9 +38,14 @@ class AtlasUITests: XCTestCase {
         let lastCell = tableRegions.cells.element(boundBy: tableRegions.cells.count-1)
         tableRegions.scrollToElement(element: lastCell)
         
+        let regionName = "North American Free Trade Agreement"
         // Open region - show countries list
-        tablesQuery.staticTexts["North American Free Trade Agreement"].tap()
+        tablesQuery.staticTexts[regionName].tap()
         sleep(1)
+        
+        let regionTitleText = app.navigationBars.otherElements[regionName]
+        XCTAssertTrue(regionTitleText.exists, "Incorrect Region title")
+        
         app.navigationBars.buttons.element(boundBy: 0).tap()
     
         // Select Search tab, search country
@@ -54,7 +59,10 @@ class AtlasUITests: XCTestCase {
         // Open country info
         let tableSearchResults = tablesQuery["tableViewSearchResults"]
         tableSearchResults.cells.element(boundBy: 0).tap()
-        sleep(2)
+        sleep(1)
+        let ukraineTitleText = app.navigationBars.otherElements["Ukraine"]
+        XCTAssertTrue(ukraineTitleText.exists, "Incorrect Search Result title")
+        sleep(1)
         
         // Add country to favorites
         var addToFavoritesButton = app.navigationBars.buttons["addToFavoritesButton"]
@@ -66,8 +74,11 @@ class AtlasUITests: XCTestCase {
         
         // Select Favorites tab, turn on/off edit mode
         app.tabBars.children(matching: .button).element(boundBy: 2).tap()
-        
+
         sleep(1)
+        let favoritesTitleText = app.navigationBars.otherElements["Favorites"]
+        XCTAssertTrue(favoritesTitleText.exists, "Incorrect Favorites title")
+        
         app.navigationBars.buttons["editModeButton"].tap()
         sleep(1)
         app.navigationBars.buttons["editModeButton"].tap()
@@ -80,7 +91,12 @@ class AtlasUITests: XCTestCase {
         // Open first border country and add to favorites
         let tableViewCountryInfo = tablesQuery["tableViewCountryInfo"]
         tableViewCountryInfo.cells.element(boundBy: 1).tap()
-        sleep(2)
+        sleep(1)
+        
+        let borderCountryTitleText = app.navigationBars.otherElements["Belarus"]
+        XCTAssertTrue(borderCountryTitleText.exists, "Incorrect Border Country title")
+
+        sleep(1)
         addToFavoritesButton = app.navigationBars.buttons["addToFavoritesButton"]
         if addToFavoritesButton.exists {
             addToFavoritesButton.tap()
