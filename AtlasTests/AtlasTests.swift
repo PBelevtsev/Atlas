@@ -23,8 +23,13 @@ class AtlasRegionsTests: XCTestCase {
         regionsVC = nil
     }
     
-    func testRegionsCount() {
+    func testRegionsScreen() {
         XCTAssertEqual(regionsVC.regions.count, 18, "Check Regions list after loading")
+        
+        let firstCell = regionsVC.tableView(regionsVC.tableViewData, cellForRowAt: IndexPath.init(row: 0, section: 0))
+        XCTAssert(firstCell.textLabel?.text == "Africa");
+        let secondCell = regionsVC.tableView(regionsVC.tableViewData, cellForRowAt: IndexPath.init(row: 1, section: 0))
+        XCTAssert(secondCell.textLabel?.text == "Americas");
     }
     
 }
@@ -72,6 +77,9 @@ class AtlasCountriesByRegionTests: XCTestCase {
     
     func testCountriesByRegion() {
         XCTAssertEqual(countriesVC.countries.count, 3, "Check NAFTA countries list count")
+        
+        let firstCell = countriesVC.dataSource!.tableView(countriesVC.tableView, cellForRowAt: IndexPath.init(row: 0, section: 1)) as! CountryTableViewCell
+        XCTAssert(firstCell.labelName.text == "Canada");
     }
     
 }
@@ -110,6 +118,10 @@ class AtlasCountryInfoFavoritesTests: XCTestCase {
         _ = XCTWaiter.wait(for: [exp], timeout: 1)
         
         XCTAssertEqual(countryInfoVC.borderCountriesCount(), 7, "Check borders countries list count")
+        
+        let firstCell = countryInfoVC.dataSource!.tableView(countryInfoVC.tableView, cellForRowAt: IndexPath.init(row: 0, section: 1)) as! CountryTableViewCell
+        XCTAssert(firstCell.labelName.text == "Belarus");
+        
         countryInfoVC.addToFavorites()
         
         favoritesVC.beginAppearanceTransition(true, animated: false)
